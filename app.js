@@ -1,5 +1,8 @@
 //jshint esversion:6
 
+const hostname='0.0.0.0.';
+const port=3000;
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose=require("mongoose");
@@ -10,7 +13,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://shlokkzz:shlokpatel@todolistdb.83pfgqx.mongodb.net/ToDoListDB",{useNewUrlParser: true});
 
 const itemSchema= {
   name: String
@@ -112,6 +115,6 @@ app.post("/delete",(req,res)=>{
   }
 });
 
-app.listen(3000, function () {
+app.listen(port,hostname, function () {
   console.log("Server started on port 3000");
 });
